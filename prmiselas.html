@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      //  function asyn1() {
+//return new Promise((resolve,reject)=>{
+//setTimeout(()=>{
+//console.log("somedata1");
+//resolve("success");//5 sec lega fir somedata print hoga pehle niche ka fertching print hoga aur issue resolve hora mtlb then use karke res print kraye
+//},5000);
+//});
+       // }
+       // console.log("fetching data")
+      //  let p1=asyn1();
+        //p1.then((res)=>{ //p1.then(); se fulfilled aeyga
+            
+          //  console.log(res);
+       // })
+        //ye func phle isme return hota promise fir vo hue baad niche ek variable me store krke then" use kiye kyuki resolve hua hai
+      //  function async2()
+        {
+//return new Promise((resolve,reject)=>{
+   // setTimeout(()=>{
+     //   console.log("somedata2");
+      //  resolve("success");
+   // },5000);
+//}); };
+//ky hora phle sirf promise return hora uske baad niche value variable me store hori aur then use krre fir 5 baad then aur console sath me aare
+    
+        //console.log("fetching data 2");
+        //let p2=async2();
+       // p2.then((res)=>{
+        //    console.log(res);
+       // })
+        //mujhe esa chaiye ki pehle ek ho fir dusra so syntax is 
+       // let p1=async1(); //phle 1 call kiya
+       // P1.THEN((RES)=>{
+           // CONSOLE.LOG(RES);
+           // console.log("fetch 2"); //one hue baad 2 ko bulaya isbAAR  one aur 2 ek hi block me likhe toh pehle ek fir dusra steps in oj
+          //  let p2=async2();
+           // p2.then((res)=>{ //nhi p2 banaye to bi chalta function . bi kr skte ek variable me store krne ki jarura nahi hai 
+           //     console,log(res);
+         //   })
+            //same kaam getdata wala promises se callback se nahi
+            function getdata(dataid){
+                return new Promise((resolve,reject)=>{
+                    setTimeout(()=>{
+                        console.log("data",dataid);
+                        resolve("success");
+                    },5000) })};
+                    
+                            //;likhne ka dusra tareeka promise chain
+                            getdata(1).then((res)=>{//one ko bulaya fir vo hue baad lagech 2 ko return krwadiya fir print aage 3 ko bi bula skgte the print krke
+                                return getdata(2);
+                            }).then((res)=>{
+                                return getdata(3);
+                            }).then((res)=>{
+                                console.log(res);
+                            });
+                        };
+
+                        //async await aur accha tareeka
+                        function know() {
+                            return new Promise((resolve,reject)=>{
+                                setTimeout(()=>{
+                                    console.log("knowwheter");
+                                    resolve(200);
+                                },3000)
+                            })
+                        }
+                        async function  getwhether() { //await mtlb rokna phle ek hona fir dusra tioh await direct ni use kr skte bolkar asyncch function bnana padta
+                            await know(); //first call
+                            await know(); //sec call
+                        }
+                         function datalelo(value) {
+                            return new Promise((resolve,reject)=>{
+                                setTimeout(()=>{
+                                    console.log("data is",value);
+                                    resolve("done");
+                                });
+                            },4000);
+                         };
+                         async function getsoon() {
+                            await datalelo(3);
+                            await datalelo(4);
+                         };
+                         // isme code ko asynch function me dalna pdra aur unnecessary call krna pdra last me toh use bachne ka tareeka
+                         //iife but kam use agr function immediately call krnna vo bhi ek hi baar toh
+
+(async function () {
+                            await datalelo(3);
+                            await datalelo(4); }) ();//paranthesis use krte naam hatakr iife banane ke liye
+                     
+                    
+    </script>
+</body>
+</html>

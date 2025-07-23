@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   <script>
+    //objects  are entity having value methods
+    const students={
+        name: "ishan",
+        marks: 25,
+        printmarks: function name() {
+            console.log(this.marks)// this is a keyword jese students.marks ki jgh vo isi object ki bat krra
+            
+        }
+    
+        //prototype 
+        //ye object ki ek property hiai jisme boht info rehti apne aap me ek object rhta ye
+        //objects jo hai apne prototype se kuch n kuch inherit krte
+        // jab 2 objects hai ek kikuch function ya property dusre ko deni hai toh jiski deni usko proto banao
+        
+//class kb use kruga jab samme funct hona jese bank employee unki same info  salary tax vhghehra to class use krunga
+        
+    }
+    const employee = {
+        calctax() {
+            console.log("tax rate is 10%");
+        }
+
+    }
+    const karan= {
+        salary:30000,
+        calctax() {
+            console.log("tax rate is 20%")// ye condition me prototype me bi calctax aur khudhi me bhi toh khud wala cosider hoga more priority
+        }
+    }
+    const ajju ={
+        salary: 20000
+    }
+    const kailash = {
+        salary:50000
+    }
+    const mansi = {
+        salary:90000
+    }
+    mansi.__proto__ = employee;
+    karan.__proto__ = employee;
+    kailash.__proto__ = employee;
+    ajju.__proto__ = employee; 
+    let array=[1,2,3,4,5]// jab ham push pop krte to ye kaha se aate ye already diye hote prototype se 
+    //classes
+    // ye ek gattha hai same objects ka jaise ek hi temlate detA YE SUBJECTDATA SAB SAME DIKHTE AND USME MULIPLE OBJECTS LIKHTE HAI APAN
+    // CLASS MYCLASS{
+    //USME METHODS AND FUNCTIONS WHATEVER IT MAY BE 
+    // }
+    class toyotacar {// class banao iske functions dusre ko de skte ye ek heasd isse bohot objects nikal sakte hai apan
+        start() {
+            console.log("start");
+        }
+        stop() {
+            console.log("stop");
+            
+
+            
+
+            }
+            setbrand(brand) {
+                this.brandname=brand;
+                
+            }
+tax(percent) {
+    this.percenttax=percent;//ye function likh diye uske baad jo parameter pass krenge usko ek variable object ki property his..propert=parameter kare 
+}
+discount(amount) {
+    this.amounted=amount;
+}
+        }
+    
+    let scorpio=new toyotacar();
+    scorpio.setbrand("sexy");
+    let hero=new toyotacar();
+hero.tax("20%");//function call krke parameter pass krdiye upr property save hongi
+scorpio.discount(20000);
+hero.discount(22222);
+scorpio.tax("30%");
+//constructor ek method hota hai jisme naam hi function ka ye hai
+//by default new object bnta to sbe phle call hota object ko initialize krta ,new, se invoke hota
+class boys {
+    constructor() {
+        console.log("create orrun");// sbse phle call hota nhi bi banaye to prototype me rhta
+        //argument ko constructor ke andar hi bhej sakte 1
+        //constructor initialization ke time kaam krwata
+    }
+    age(value) {
+        this.age=value;
+    }
+    color(bolo) {
+        this.color=bolo;
+    }
+
+}
+let rohan=new boys();//yha daal skte1
+rohan.age(45);
+rohan.color("black");
+let om=new boys();
+om.age(87);
+om.color("blue")
+class gadi {
+    constructor(petrol,milege) {
+        this.petrol=petrol;
+        this.milege=milege;
+    }
+}
+let honda=new gadi(30,50);
+console.log (honda)
+//inheritance mtlb property child class ko dedena c2 extends c1 mtlnb class2 jo child class hai voh class1 ko extends karara hai
+//class ki property class ko inheritance krwana  
+class parent {
+    hello(){
+        console.log("hiie");
+    }
+}
+class child extends parent {} //one class ki property second ko aayi hai 
+let baccha=new child();// ye child ka object hai fir bi parent class ki poperrties using enheritence concept(extends)
+class person {
+constructor() {
+    console.log(1);
+}
+    eat()
+ {
+    console.log("eat");
+ }
+      sleep() {
+        console.log("lets sleep");
+      }
+
+
+ }
+  class engineer extends person {//person as a prototype 
+    
+    constructor() {
+        super();//constructor ke andar likhna super used to invoke parent constructor
+console.log(2);
+
+    }
+    
+    work() {
+        console.log("work");
+    }
+  }
+  let game=new engineer();//nhi hoga kyuki dono me constructer hai to supr constructor super keyword use krna pdenga
+
+  //class doctor extends engineer { // engineer me already person extend kiya tha ab doctor mee engineer to dono ajate hai
+    //treat() {
+    //    console.log("treats the patient")
+   // }
+ // }
+  let obj= new doctor(); 
+  //note
+  //jab parent aur child class me same function hota hai toh child wala invvoked hoga
+class leg {
+    constructor(name) {}
+    arm() {
+        console.log("paining")
+    }
+}
+class ladd extends leg {
+    constructor(name){
+        super(name);//envokes first costructor idr bi name paas krna hoga taaki uppr tak pohoche
+
+    }
+    
+}
+let brain= new  ladd("ishan"); 
+//super parent function ki ekhadi property bhi upr se niche laata hai
+//q1 to create class for student info and view data
+let view="secret";
+class oneyear {
+    name(name) {
+this.name=name;
+
+    }
+    email(email) {
+        this.email=email; //constructor me bhii paas kr skte bas niche bhi pass krna super eyword me bhi
+    }
+    viewdata() {
+        console.log("letss see",view);
+    }
+}
+let rudra=new oneyear();
+rudra.name("rudra");
+rudra.email("gmail");
+ class admin extends oneyear {
+    editdata() {
+        console.log("edit");
+    }
+ } 
+ //error handdling 
+ //error handle krne ka tareeeka try and catch method 
+ //jisme error ara ya lagra usko try lock me likho catch ko call kro mil jayga error
+ let a =4;
+ let b=6;
+ console.log(a+b); 
+ try{
+ console.lo(a+c);}//error dega c hai hi nai to likho try me
+catch(err) {
+console.log(err); //err argument pass krte apan isse code rukega nahi 
+}
+
+</script> 
+</body>
+</html>

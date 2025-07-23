@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style> div{height: 100px;width: 100px;border-radius: 20px;background-color: aqua;padding-left: 40px;}
+    .newclass{
+      background-color: black;
+    }
+  </style>
+  
+</head>
+<body>
+  <div for class="container"> hii </div>
+    <div class="container"> hii</div>
+    <div class="container"> hii</div>
+    <p for id="wow"src="#"> jii</p>
+    <button for id="yaar"> click me</button>
+    <header> </header>
+</body>
+<script> 
+idx=0;
+let divs=  document.querySelectorAll(".container")
+for(let div of divs){
+  div.innerText=  `hiie this is a unique id number ${idx}`
+  idx++
+  
+  
+}
+//log kre to simple aata ineerhtml dir kre rto pura object aata html kaaaaa 
+//for of looop use kr skte 
+// sada bi kre to single single divs[0] divs[1] divs[2] aise karna padega so loop use kiya
+// text content hidden bi deta
+//innertext only visible
+//tagname tag
+//innerhtml pura content deta
+
+//divs[0].innerHTML= "hello"
+//divs[1].innerHTML= "hello"
+//divs[2].innerHTML= "hello"
+//console.log(divs[0].innerHTML);
+//me cheezo ko js se hi change kr skta
+//pehle access kro fir . style ya inner text kro aur konsa node h check kro jb boht ho us specialised me changes karo
+///get attribute access kro fir get attribute krdo id milti class milti
+// pehle jiski hona usko access kare fir ek variable me get attribute jo chaiye vo krdiye save  a capital always
+let p=document.querySelector("p");
+let id=p.getAttribute("id");
+let src=p.getAttribute("src");
+console.log(id);
+console.log(src);
+//set attribute class ya id ka name change karna
+let pyaar= p.setAttribute("id","great");// id change ho gayi jo honauski.setattribute bracket me ky set krna comma kya dena name
+let button1=document.querySelector("#yaar");//QUERY SELELCTOR ME HASH N ALL SAB LIKHNA PADEGA 
+console.log(button1.getAttribute("id"));//ya to direct log me likho ya variable store kro 
+//steps
+//element ko access karo
+//baaadme usko jo variable me store kiye. get attribute ya set attribute ya variable me store krke variable print kro ya direct console me likho
+//style ke liye div.style.backgroundcolor="" isme backgroundColor aata camel case hojata 
+button1.style.backgroundColor="red";
+button1.innerText;// atleast define krdo direct likhe to nhi access hoga
+button1.innerText=button1.innerText + "nhi bhi kar sakte";// upar define kiya tha isliye likh paaye
+//how can we insert elements or remove them
+// pehle create kro new document.createElement("button")
+// fir jis bhi node ke pass add krni usko access karo variable ,me store kro ya direct access kro
+// vo variable/node.append(element)//last me add krega inside hi karega
+//vo variable.prepend(element)start me add krega inside hi
+let newbtn=document.createElement("button");
+newbtn.innerText="click me dont" ;
+let divsss=document.querySelectorAll(".container");
+//divsss.setAttribute("class","newclass");
+//for( let div of divs)
+//{
+  //div.prepend(newbtn);
+//]
+divsss[0].append(newbtn);//sbko liya first me add kiya array concept indices
+divsss[1].append(newbtn);
+//sirf ek mech hota
+//before se outside pehle
+//after se outside badme
+divsss[2].after(newbtn);
+divsss[1].before(newbtn);
+
+ //let newhead=document.CreateElement("h1");
+ h1.innerText="hiie welcome to chutiya ghar";
+ h1.style.color="green";
+ h1.style.fontsize="large";
+ let body=document.querySelector("body");
+ body.prepend(newhead);
+ //document.querySelector("header").setAttribute("class","newclass");
+ 
+ //TO DELETE DO BODY.REMOVE();
+ //CSS ME NEW CLASS BANAO AND USKO YHA SET ATTRIBUTE KRO to remove hoti purani agr hamko purani aur yeh dono hona to class list use krte
+ //classes and objects
+ //objects are entitite which contains properties and methods,kuch saamaan uska behaviour value information sab store kar sakte hai
+ //object
+ const students={
+  fullname:"shraddha",
+  class:10,
+  printmarks: function print() {
+    console.log(this.marks); //this mtlb students.marks jab bi ham this use kre ek object me mtlb vo use object ki hi baat kr rhe hai 
+  }
+ }
+
+ 
+
+</script>
+</html>

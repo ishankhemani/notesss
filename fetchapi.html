@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    //api fetch karne ka ye ek method hai
+    //ye ek function hai jo promise return karta hai kuch bh9i rq bhejo data laake dega response and request concept//
+    //stands for application programmin language
+    //system api ke end point pe req bhejte ye ek bag hai jisme alg alg api info hai alg alg information hai isme
+    //fetch api gives the interface to collect 
+    <script> 
+       // let promise = fetch(url,options);// ye fetch method use karte hai apan isme jo ye yrl ko req bhej deti hai aur information return krti as a promise 
+     //  let url="https://api.coindesk.com/v1/bpi/currentprice.json"
+     //  function get() {
+      //  let promise=fetch(url);
+      //  console.log("fetching data...");
+      //  console.log(promise);
+     //  }
+      // async function fetch() {
+      //  await get();
+      //
+      let url="https://api.coindesk.com/v1/bpi/currentprice.json"
+    const get =   async ()=>{
+        let response= await fetch(url);
+        console.log("fetching data...");
+        console.log(response);
+        let data=await response.json();
+        console.log(data);
+      };
+      //response object milta hai  req and response object pr kaam krtee hai get api 
+      //get request matlb vo request jo sirf kb isi data ko laane ka kaam karti hai koi option jb ham pass nahi karte
+      //pehle data ajax form me ata tha browser me alg dikhta tha apn ko alg isliye hi,ajax mtlb asyncronous javascript and xml
+      //ab data json me aata hai json is javascript object notation
+      //ab yhi json ko as a input dete .json(); isse simple javascript object form me data aata hai
+      //phele ek promise response aata json me fir usko as a input call krte 
+      //http verbs mtlb jo alg alg req bhejte apn get,delete,patch aise
+      //http status code mtlb jo server se response aata hai usme 3 digit ka number hota hai
+      //status 200 for success, 404 for not found apni galti hai 404 matlab, 500 for server error \
+      //http header jo response aata ya jo req apan bhejte usme header me info hoti type of data,content info etc...
+
+
+
+    </script>
+
+</body>
+</html>

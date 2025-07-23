@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+        //sync programminfg mtlb sequence wise code run hote agr koi ek time liya to AAGE KE ATAKTE
+        //asynch mtlb jo pehle hore vo hojate jinko time lagra vo side y hoterhte
+        console.log(1);
+        console.log(2);
+        //api
+        
+        //toh 1,2,3 hhojayenge side by api chalta rhega kuki time leta
+        //settimeout
+        setTimeout(() => {
+            console.log("hello");//isko time lgta phle niche wala run  ho jayega asynch
+        }, 2000);//ms hai 
+        console.log(3);
+        // callback functions are functions passed as an argument in other functions
+         function sum(a,b) { // sum function bnaya 
+            console.log(a-b);
+         }
+        function calculator(a,b,sumCallback) { //usko as a argument pass kiya 
+            sumCallback(a,b); //vapas likha ek baar
+
+        }
+        calculator(5,9,sum); //vapas likha
+        function hello() {
+            console.log("hello");
+        }
+        setTimeout(hello,4000); //settimeout bhi callback leta hai
+        setTimeout(()=>{
+            console.log("desi");
+        },5000);
+        //nestinggggg
+        let age=19;
+        if(age>=18) {
+            if(age>=60) {
+                console.log("senior");
+            }
+            else if(age>=19) {
+                console.log("edi");
+            }
+            
+        } else {
+            console.log("chota");
+        }
+        ///nested mtlb ek me ek ek me ek 
+        //callback hell mtl fucntio ke andar function aur jab apan koi function as a argument pass krre toh us functioon me bi kuch pass krna hai to usko as a arrow function likhna
+        function getdata(dataid,getNextdata ) {
+            setTimeout(()=>{
+                console.log("data ",dataid);//set time out ke andar function pass kiye dono 
+                getNextdata();
+            },2000)
+        }
+        getdata(1,()=>{
+            getdata(2)
+        })
+        function lobhai(lo,getNextlo)  {//funcion banaya work ke sath sb mtlb 
+            console.log("data ",lo);
+            getNextlo();
+        }
+        setTimeout(lobhai//direct function pass kiya
+        ,2000)
+        lobhai(6,()=>{
+            console.log("getting data 3 ")//ek baar ek pass kiye fir dusra func pass krne ke liye arrow function use kiye hai
+            lobhai(3,()=>{
+                console.log("getting data 4")
+                lobhai(9)
+            })
+        })
+        //isi kachre ko call back hell bolte isko saaf krne ko ek concept aya that is promises 
+        //promise are eveentual completion of task,,,,it is an object
+        //promise ya to resolve ya to reject hogaaa
+let promise = new promise((resolve,reject) => {
+console.log("promise kiya");
+resolve(123);//ye resolve aur reject auto created rehta hai js ke through
+});
+
+
+
+    </script>
+</body>
+</html>
